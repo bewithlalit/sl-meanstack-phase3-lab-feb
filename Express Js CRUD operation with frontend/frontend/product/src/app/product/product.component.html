@@ -1,4 +1,42 @@
-<div *ngFor="let product of products">
-    <img src="{{product.url}}" width="200px" height="200px">
-    <p>{{product.pname}} {{product.price}}</p>
+<div class="container">
+    <h3>Add Product</h3>
+    <form [formGroup]="productRef" class="form-group">
+        <label>PId</label>
+        <input type="number" formControlName="pid" class="form-control"/><br/>
+        <label>PName</label>
+        <input type="text" formControlName="pname" class="form-control"/><br/>
+        <label>Price</label>
+        <input type="number" formControlName="price" class="form-control"/><br/>
+        <label>Image Url</label>
+        <input type="url" formControlName="url" class="form-control"/><br/>
+        <input type="button" value="Add Product" (click)="storeProduct()" class="btn btn-primary"/>
+        <input type="reset" value="reset" class="btn btn-secondary ml-10"/>
+    </form>
+    <span style="color: red;">{{storeMsg}}</span>
+    <hr/>
+    <h3>Product Gallery</h3>
+    <div *ngFor="let product of products" style="display: inline-block;">
+        <img src="{{product.url}}" width="200px" height="200px">
+        <p>{{product.pname}} {{product.price}}</p><br/>
+        <div style="align-items: center;">
+            <input type="button" value="delete" (click)="onDelete(product.pid)" class="btn btn-danger"/>
+            <input type="button" value="update" (click)="onUpdate(product)" class="btn btn-success ml-10"/>
+        </div>
+    </div>
+    <span style="color: red;">{{deleteMsg}}</span>
+    <hr/>
+    <div *ngIf="isUpdate">
+        <h2>Update the record</h2>
+        <form class="form-group">
+            <label for="pid">Pid</label>
+            <input type="number" name="pid" [(ngModel)]="pid" readonly class="form-control"><br/>
+            <label>Price</label>
+            <input type="number" name="price" [(ngModel)]="price" class="form-control"><br/>
+            <label>Url</label>
+            <input type="url" name="url" [(ngModel)]="url" class="form-control"><br/>
+            <input type="button" value="Update Record" (click)="onUpdateForDb()" class="btn btn-primary"/>
+            <input type="reset" value="reset" class="btn btn-secondary ml-10">
+        </form>
+        <span style="color:red">{{updateResult}}</span>
+    </div>
 </div>
