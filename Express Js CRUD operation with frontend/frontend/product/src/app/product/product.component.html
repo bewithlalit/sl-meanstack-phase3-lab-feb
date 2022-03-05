@@ -15,6 +15,21 @@
     <span style="color: red;">{{storeMsg}}</span>
     <hr/>
     <h3>Product Gallery</h3>
+    <!-- <div *ngFor="let product of products" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{product.url}}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
     <div *ngFor="let product of products" style="display: inline-block;">
         <img src="{{product.url}}" width="200px" height="200px">
         <p>{{product.pname}} {{product.price}}</p><br/>
