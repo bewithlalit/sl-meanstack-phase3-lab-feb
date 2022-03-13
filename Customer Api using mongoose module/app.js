@@ -2,7 +2,7 @@ let express = require("express");
 let customerRouter = require("./router/customerRouter")
 let db = require("./config/dbConfig")
 let app = express()
-let port = 9091;
+let port = process.env.PORT || 9091;
 
 db.dbConnection; //connect to database
 app.use(express.json());
