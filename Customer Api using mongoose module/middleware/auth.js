@@ -8,7 +8,6 @@ let verifyToken = async (req, res, next)=> {
     // verifying token
     try {
         let verifyTokenValue = await jwt.verify(token, "my-key");
-        console.log("verifyTokenValue", typeof verifyTokenValue);
         if(!verifyTokenValue) {
             res.send("Unauthorized User!")
         }
