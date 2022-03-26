@@ -1,0 +1,10 @@
+<div>
+ <p>Child1 Component</p>
+ <p>Parent Name in child1 component is {{parentName}}</p>
+ <p> Child age in child component is {{childAge}}</p>
+ <input type="button" value="Submit" (click)="passValue()">
+ <br/>
+ <div>
+     <ul *ngFor="let item of data"><li>{{item}}</li></ul>
+ </div>
+</div>
